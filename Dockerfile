@@ -17,22 +17,10 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
 RUN set -eux; \
     apk add --no-cache \
-        # java.lang.UnsatisfiedLinkError: libfontmanager.so: libfreetype.so.6: cannot open shared object file: No such file or directory
-        # java.lang.NoClassDefFoundError: Could not initialize class sun.awt.X11FontManager
-        # https://github.com/docker-library/openjdk/pull/235#issuecomment-424466077
-        fontconfig ttf-dejavu \
-        # utilities for keeping Alpine and OpenJDK CA certificates in sync
-        # https://github.com/adoptium/containers/issues/293
-        ca-certificates p11-kit-trust \
-        # locales ensures proper character encoding and locale-specific behaviors using en_US.UTF-8
+        ca-certificates \
         musl-locales musl-locales-lang \
         tzdata \
-        # Contains `csplit` used for splitting multiple certificates in one file to multiple files, since keytool can
-        # only import one at a time.
-        coreutils \
-        # Needed to extract CN and generate aliases for certificates
-        openssl \
-        su-exec bash \
+        su-exec \
     ; \
     rm -rf /var/cache/apk/*; \
     chmod -R 777 /opt/java/openjdk
