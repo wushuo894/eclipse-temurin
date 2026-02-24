@@ -2,7 +2,7 @@ FROM eclipse-temurin:25-jdk-alpine AS jre-builder
 
 # 使用 jlink 创建一个只包含必要模块的自定义 JRE
 RUN $JAVA_HOME/bin/jlink \
-    --add-modules java.base,java.desktop,java.management,java.security.jgss,java.logging,java.naming,java.net.http,java.sql,java.sql.rowset,java.xml,jdk.httpserver,jdk.naming.dns,jdk.unsupported \
+    --add-modules java.base,java.desktop,java.management,java.security.jgss,java.logging,java.naming,java.net.http,java.sql,java.sql.rowset,java.xml,jdk.httpserver,jdk.naming.dns,jdk.unsupported,java.instrument \
     --strip-debug \
     --no-header-files \
     --no-man-pages \
