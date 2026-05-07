@@ -12,9 +12,10 @@
 ## 镜像特性
 
 ### Dockerfile (x86_64/Alpine)
-- **基础镜像**: `eclipse-temurin:25-jdk-alpine`
+
+- **基础镜像**: `eclipse-temurin:26-jdk-alpine`
 - **运行时**: Alpine Linux
-- **Java 版本**: JDK 25
+- **Java 版本**: JDK 26
 - **特点**:
   - 使用 `jlink` 创建自定义 JRE，只包含必要的模块
   - 包含字体支持 (fontconfig, ttf-dejavu)
@@ -48,7 +49,7 @@
 
 ### 构建 x86_64 镜像
 ```bash
-docker build -t eclipse-temurin-custom:25-alpine -f Dockerfile .
+docker build -t eclipse-temurin-custom:26-alpine -f Dockerfile .
 ```
 
 ### 构建 ARM32v7 镜像
@@ -61,7 +62,7 @@ docker build -t eclipse-temurin-custom:17-arm32v7 -f Dockerfile-arm32v7 .
 ### 运行 Java 应用
 ```bash
 # 使用 x86_64 镜像
-docker run -it --rm eclipse-temurin-custom:25-alpine java -version
+docker run -it --rm eclipse-temurin-custom:26-alpine java -version
 
 # 使用 ARM32v7 镜像
 docker run -it --rm eclipse-temurin-custom:17-arm32v7 java -version
@@ -72,7 +73,7 @@ docker run -it --rm eclipse-temurin-custom:17-arm32v7 java -version
 docker run -it --rm \
   -v /path/to/your/app:/app \
   -w /app \
-  eclipse-temurin-custom:25-alpine \
+  eclipse-temurin-custom:26-alpine \
   java -jar your-app.jar
 ```
 
