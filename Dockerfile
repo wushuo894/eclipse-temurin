@@ -25,7 +25,6 @@ RUN set -eux; \
     rm -rf /var/cache/apk/*; \
     chmod -R 777 /opt/java/openjdk
 
-ENV JAVA_TOOL_OPTIONS="-XX:+IgnoreUnrecognizedVMOptions -XX:+IdleTuningGcOnIdle"
 ENV JAVA_HOME=/opt/java/openjdk
 ENV PATH="$JAVA_HOME/bin:$PATH"
 ENV PUID=0 PGID=0 UMASK=022 TZ=Asia/Shanghai
