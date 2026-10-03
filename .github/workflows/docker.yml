@@ -23,4 +23,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: wushuo894/eclipse-temurin:latest, wushuo894/eclipse-temurin:26-jre-alpine
+          tags: wushuo894/eclipse-temurin:latest, wushuo894/eclipse-temurin:27-jre-alpine
